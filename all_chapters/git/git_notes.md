@@ -1,13 +1,14 @@
-# git_notes
+# README
 
 学习 git 相关材料和笔记
 
-[git教程](https://backlog.com/git-tutorial/cn/)
+[git 教程](https://backlog.com/git-tutorial/cn/)
 
 # 基本命令
 ```
-# 打开git GUI界面
+# 打开 git GUI 界面
 $ gitk
+$ git gui
 
 # 查找 git 命令对用操作可用 -h
 # 对 config 命令查询帮助
@@ -118,11 +119,11 @@ test 分支：用于测试人员测试
 develop 分支：变化最频繁，用于开发  
 hotfix 分支：线上系统出问题用于紧急修复的分支  
 
-git合并原则：三方合并原则  
+git 合并原则：三方合并原则  
 只有一个提交人的提交是线性提交  
 当有两个人进行提交，则从原始提交点开始进行分叉出两个新的提交点，合并时将这两个提交点进行合并，则比原始提交点前进了两次提交  
 
-合并 dev分支到master分支时，如果master分支的状态没有被更改过，那么这个合并是非常简单的。 dev分支的历史记录包含master分支所有的历史记录，所以通过把master分支的位置移动到dev的最新分支上，Git 就会合并。这样的合并被称为fast-forward（快进）合并。  
+合并 dev 分支到 master 分支时，如果 master 分支的状态没有被更改过，那么这个合并是非常简单的. dev 分支的历史记录包含 master 分支所有的历史记录，所以通过把 master 分支的位置移动到 dev 的最新分支上，Git 就会合并.这样的合并被称为 fast-forward（快进）合并.  
 
 ```
 # 创建并切换 dev 分支
@@ -226,7 +227,7 @@ $ git push origin :refs/tags/v0.9 # 删除远程
 # 远程仓库
 push 推送  
 pull 拉取会执行合并 merge pull == fetch+merge  
-远程协作如遇同时修改一个文件，需要先进行pull操作，并在本地手动合并修改文件的冲突，然后才能执行push操作  
+远程协作如遇同时修改一个文件，需要先进行 pull 操作，并在本地手动合并修改文件的冲突，然后才能执行 push 操作  
 
 ```
 $ ssh-keygen -t rsa -C "youremail@example.com"
@@ -267,14 +268,14 @@ $ git pull # 抓取到本地合并解决冲突，再向远程推送
 $ git push origin dev
 ```
 
-# .gitignore
+# gitignore
 .gitignore 文件包含要忽略的文件名，这些文件将不纳入版本管理中  
 .gitignore 中的输入支持正则表达式  
 ```
-# 创建.gitignore文件
+# 创建.gitignore 文件
 $ vi .gitignore
 
-# 查看。gitignore 文件
+# 查看.gitignore 文件
 $ cat .gitignore
 ```
 # 自定义 Git
@@ -282,7 +283,7 @@ $ cat .gitignore
 # 显示颜色，会让命令输出看起来更醒目
 $ git config --global color.ui true
 
-# 忽略某些文件时，需要编写。gitignore，然后将。gitignore 放到版本库中
+# 忽略某些文件时，需要编写.gitignore，然后将.gitignore 放到版本库中
 # st 就表示 status
 $ git config --global alias.st status
 
@@ -296,8 +297,8 @@ $ git config --global alias.last 'log -1'
 
 # log
 git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
-# 每个仓库的配置文件放在。git/config
-# 当前用户的配置文件放在用户主目录下的一个隐藏文件。gitconfig 中
+# 每个仓库的配置文件放在.git/config
+# 当前用户的配置文件放在用户主目录下的一个隐藏文件.gitconfig 中
 ```
 
 搭建 Git 服务器
