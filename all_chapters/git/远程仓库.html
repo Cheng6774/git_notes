@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>自定义设置 · GitBook</title>
+        <title>远程仓库 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="../howtouse/" />
+    <link rel="next" href="自定义Git.html" />
     
     
-    <link rel="prev" href="remote_repository.html" />
+    <link rel="prev" href="分支管理与stash.html" />
     
 
     </head>
@@ -116,12 +116,12 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.2.1" data-path="basic_orders.html">
+        <li class="chapter " data-level="1.2.1" data-path="基本命令.html">
             
-                <a href="basic_orders.html">
+                <a href="基本命令.html">
             
                     
-                    基本操作
+                    基本命令
             
                 </a>
             
@@ -129,12 +129,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.2" data-path="branch.html">
+        <li class="chapter " data-level="1.2.2" data-path="diff.html">
             
-                <a href="branch.html">
+                <a href="diff.html">
             
                     
-                    分支管理
+                    diff
             
                 </a>
             
@@ -142,9 +142,22 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.3" data-path="remote_repository.html">
+        <li class="chapter " data-level="1.2.3" data-path="分支管理与stash.html">
             
-                <a href="remote_repository.html">
+                <a href="分支管理与stash.html">
+            
+                    
+                    分支管理与stash
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.4" data-path="远程仓库.html">
+            
+                <a href="远程仓库.html">
             
                     
                     远程仓库
@@ -155,12 +168,25 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.2.4" data-path="customize_settings.html">
+        <li class="chapter " data-level="1.2.5" data-path="自定义Git.html">
             
-                <a href="customize_settings.html">
+                <a href="自定义Git.html">
             
                     
-                    自定义设置
+                    自定义Git
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="gitignore.html">
+            
+                <a href="gitignore.html">
+            
+                    
+                    gitignore
             
                 </a>
             
@@ -409,7 +435,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../.." >自定义设置</a>
+        <a href="../.." >远程仓库</a>
     </h1>
 </div>
 
@@ -424,56 +450,45 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="&#x81EA;&#x5B9A;&#x4E49;-git">&#x81EA;&#x5B9A;&#x4E49; Git</h1>
-<pre><code># &#x663E;&#x793A;&#x989C;&#x8272;&#xFF0C;&#x4F1A;&#x8BA9;&#x547D;&#x4EE4;&#x8F93;&#x51FA;&#x770B;&#x8D77;&#x6765;&#x66F4;&#x9192;&#x76EE;
-$ git config --global color.ui true
+                                <h1 id="&#x8FDC;&#x7A0B;&#x4ED3;&#x5E93;">&#x8FDC;&#x7A0B;&#x4ED3;&#x5E93;</h1>
+<p>push &#x63A8;&#x9001;<br>pull &#x62C9;&#x53D6;&#x4F1A;&#x6267;&#x884C;&#x5408;&#x5E76; merge pull == fetch+merge<br>&#x8FDC;&#x7A0B;&#x534F;&#x4F5C;&#x5982;&#x9047;&#x540C;&#x65F6;&#x4FEE;&#x6539;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#xFF0C;&#x9700;&#x8981;&#x5148;&#x8FDB;&#x884C;pull&#x64CD;&#x4F5C;&#xFF0C;&#x5E76;&#x5728;&#x672C;&#x5730;&#x624B;&#x52A8;&#x5408;&#x5E76;&#x4FEE;&#x6539;&#x6587;&#x4EF6;&#x7684;&#x51B2;&#x7A81;&#xFF0C;&#x7136;&#x540E;&#x624D;&#x80FD;&#x6267;&#x884C;push&#x64CD;&#x4F5C;  </p>
+<pre><code>$ ssh-keygen -t rsa -C &quot;youremail@example.com&quot;
+# &#x6D4B;&#x8BD5;&#x662F;&#x5426;&#x6210;&#x529F;
+$ ssh -T git@github.com
 
-# &#x5FFD;&#x7565;&#x67D0;&#x4E9B;&#x6587;&#x4EF6;&#x65F6;&#xFF0C;&#x9700;&#x8981;&#x7F16;&#x5199;.gitignore&#xFF0C;&#x7136;&#x540E;&#x5C06;.gitignore&#x653E;&#x5230;&#x7248;&#x672C;&#x5E93;&#x4E2D;
-# st&#x5C31;&#x8868;&#x793A;status
-$ git config --global alias.st status
+# &#x628A;&#x4E00;&#x4E2A;&#x5DF2;&#x6709;&#x7684;&#x672C;&#x5730;&#x4ED3;&#x5E93;&#x4E0E;&#x4E4B;&#x5173;&#x8054;
+$ git remote add origin git@github.com:Windrivder/Windrivder.git
 
-# &#x914D;&#x7F6E;&#x4E00;&#x4E2A;unstage&#x522B;&#x540D;
-$ git config --global alias.unstage &apos;reset HEAD&apos;
-$ git unstage test.py # &#x7B49;&#x4EF7;&#x4E8E;
-$ git reset HEAD test.py
+# &#x628A;&#x672C;&#x5730;&#x5E93;&#x7684;&#x6240;&#x6709;&#x5185;&#x5BB9;&#x63A8;&#x9001;&#x5230;&#x8FDC;&#x7A0B;&#x5E93;&#x4E0A;&#xFF08;&#x63A8;&#x9001; master &#x5206;&#x652F;&#x7684;&#x5185;&#x5BB9;&#xFF09;
+$ git push -u origin master
 
-# &#x663E;&#x793A;&#x6700;&#x540E;&#x4E00;&#x6B21;&#x63D0;&#x4EA4;&#x4FE1;&#x606F;
-$ git config --global alias.last &apos;log -1&apos;
+# &#x5411;&#x8FDC;&#x7A0B;&#x5E93;&#x63A8;&#x9001;&#x66F4;&#x65B0;
+$ git push origin master
 
-# log
-git config --global alias.lg &quot;log --color --graph --pretty=format:&apos;%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an&gt;%Creset&apos; --abbrev-commit&quot;
-# &#x6BCF;&#x4E2A;&#x4ED3;&#x5E93;&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x653E;&#x5728;.git/config
-# &#x5F53;&#x524D;&#x7528;&#x6237;&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x653E;&#x5728;&#x7528;&#x6237;&#x4E3B;&#x76EE;&#x5F55;&#x4E0B;&#x7684;&#x4E00;&#x4E2A;&#x9690;&#x85CF;&#x6587;&#x4EF6;.gitconfig&#x4E2D;
-</code></pre><h1 id="&#x642D;&#x5EFA;-git-&#x670D;&#x52A1;&#x5668;">&#x642D;&#x5EFA; Git &#x670D;&#x52A1;&#x5668;</h1>
-<ol>
-<li>&#x5B89;&#x88C5; git&#xFF1A;</li>
-</ol>
-<p>$ sudo apt-get install git</p>
-<ol>
-<li>&#x521B;&#x5EFA;&#x4E00;&#x4E2A; git &#x7528;&#x6237;&#xFF0C;&#x7528;&#x6765;&#x8FD0;&#x884C; git &#x670D;&#x52A1;&#xFF1A;</li>
-</ol>
-<p>$ sudo adduser git</p>
-<ol>
-<li><p>&#x521B;&#x5EFA;&#x8BC1;&#x4E66;&#x767B;&#x5F55;&#xFF1A;&#x6536;&#x96C6;&#x6240;&#x6709;&#x9700;&#x8981;&#x767B;&#x5F55;&#x7684;&#x7528;&#x6237;&#x7684;&#x516C;&#x94A5;&#xFF0C;&#x5C31;&#x662F;&#x4ED6;&#x4EEC;&#x81EA;&#x5DF1;&#x7684; id_rsa.pub &#x6587;&#x4EF6;&#xFF0C;&#x628A;&#x6240;&#x6709;&#x516C;&#x94A5;&#x5BFC;&#x5165;&#x5230; /home/git/.ssh/authorized_keys &#x6587;&#x4EF6;&#x91CC;&#xFF0C;&#x4E00;&#x884C;&#x4E00;&#x4E2A;</p>
-</li>
-<li><p>&#x521D;&#x59CB;&#x5316; Git &#x4ED3;&#x5E93;&#xFF1A;</p>
-</li>
-</ol>
-<h1 id="&#x9009;&#x5B9A;&#x4E00;&#x4E2A;&#x76EE;&#x5F55;&#x4F5C;&#x4E3A;-git-&#x4ED3;&#x5E93;&#xFF0C;&#x5047;&#x5B9A;&#x662F;-srvsamplegit&#xFF0C;&#x5728;-srv-&#x76EE;&#x5F55;&#x4E0B;&#x8F93;&#x5165;&#x547D;&#x4EE4;">&#x9009;&#x5B9A;&#x4E00;&#x4E2A;&#x76EE;&#x5F55;&#x4F5C;&#x4E3A; Git &#x4ED3;&#x5E93;&#xFF0C;&#x5047;&#x5B9A;&#x662F; /srv/sample.git&#xFF0C;&#x5728; /srv &#x76EE;&#x5F55;&#x4E0B;&#x8F93;&#x5165;&#x547D;&#x4EE4;</h1>
-<p>$ sudo git init --bare sample.git</p>
-<h1 id="&#x628A;-owner-&#x6539;&#x4E3A;-git">&#x628A; owner &#x6539;&#x4E3A; git</h1>
-<p>$ sudo chown -R git:git sample.git</p>
-<ol>
-<li>&#x7981;&#x7528; shell &#x767B;&#x5F55;&#xFF1A;</li>
-</ol>
-<h1 id="&#x7F16;&#x8F91;etcpasswd&#x6587;&#x4EF6;">&#x7F16;&#x8F91;/etc/passwd&#x6587;&#x4EF6;</h1>
-<p>git:x:1001:1001:,,,:/home/git:/bin/bash # &#x4FEE;&#x6539;&#x6210;&#x4E0B;&#x9762;&#x7684;&#x5185;&#x5BB9;
-git:x:1001:1001:,,,:/home/git:/usr/bin/git-shell</p>
-<ol>
-<li>&#x514B;&#x9686;&#x8FDC;&#x7A0B;&#x4ED3;&#x5E93;&#xFF0C;&#x5728;&#x5404;&#x81EA;&#x7684;&#x7535;&#x8111;&#x4E0A;&#x8FD0;&#x884C;&#xFF1A;</li>
-</ol>
-<p>$ git clone git@server:/srv/sample.git</p>
+# &#x4ECE;&#x8FDC;&#x7A0B;&#x5E93;&#x514B;&#x9686;
+$ git clone git@github.com:michaelliao/gitskills.git
 
+# &#x67E5;&#x770B;&#x8FDC;&#x7A0B;&#x5E93;&#x7684;&#x540D;&#x79F0;
+$ git remote
+
+# &#x67E5;&#x770B;&#x8FDC;&#x7A0B; pull &#x548C; push &#x5BF9;&#x8C61;&#x5E93;
+$ git remote -v
+
+# &#x67E5;&#x770B;&#x8FDC;&#x7A0B;&#x5E93;&#x8BE6;&#x7EC6;&#x4FE1;&#x606F;
+$ git remote shwo origin  # origin &#x4E3A;&#x8FDC;&#x7A0B;&#x5E93;&#x540D;&#x79F0;
+
+# &#x63A8;&#x9001;&#x5176;&#x4ED6;&#x5206;&#x652F;
+$ git push origin dev
+
+# &#x4ECE;&#x8FDC;&#x7A0B;&#x5E93; clone&#xFF0C;&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x53EA;&#x80FD;&#x770B;&#x5230; master &#x5206;&#x652F;&#xFF0C;&#x9700;&#x8981;&#x5728; dev &#x5206;&#x652F;&#xFF0C;&#x5FC5;&#x987B;&#x521B;&#x5EFA;&#x8FDC;&#x7A0B; origin &#x7684; dev &#x5206;&#x652F;&#x5230;&#x672C;&#x5730;
+$ git checkout -b dev origin/dev
+$ git checkout -b branch-name origin/branch-name
+$ git branch --set-upstream branch-name origin/branch-name # &#x5173;&#x8054;
+
+# &#x5411;&#x8FDC;&#x7A0B;&#x5E93;&#x63A8;&#x9001; dev &#x6709;&#x51B2;&#x7A81;
+$ git pull # &#x6293;&#x53D6;&#x5230;&#x672C;&#x5730;&#x5408;&#x5E76;&#x89E3;&#x51B3;&#x51B2;&#x7A81;&#xFF0C;&#x518D;&#x5411;&#x8FDC;&#x7A0B;&#x63A8;&#x9001;
+$ git push origin dev
+</code></pre>
                                 
                                 </section>
                             
@@ -500,12 +515,12 @@ git:x:1001:1001:,,,:/home/git:/usr/bin/git-shell</p>
 
             
                 
-                <a href="remote_repository.html" class="navigation navigation-prev " aria-label="Previous page: 远程仓库">
+                <a href="分支管理与stash.html" class="navigation navigation-prev " aria-label="Previous page: 分支管理与stash">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="../howtouse/" class="navigation navigation-next " aria-label="Next page: gitbook基础">
+                <a href="自定义Git.html" class="navigation navigation-next " aria-label="Next page: 自定义Git">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -516,7 +531,7 @@ git:x:1001:1001:,,,:/home/git:/usr/bin/git-shell</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"自定义设置","level":"1.2.4","depth":2,"next":{"title":"gitbook基础","level":"1.3","depth":1,"path":"all_chapters/howtouse/README.md","ref":"all_chapters/howtouse/README.md","articles":[{"title":"Node.js安装","level":"1.3.1","depth":2,"path":"all_chapters/howtouse/Nodejsinstall.md","ref":"all_chapters/howtouse/Nodejsinstall.md","articles":[]},{"title":"Gitbook安装","level":"1.3.2","depth":2,"path":"all_chapters/howtouse/gitbookinstall.md","ref":"all_chapters/howtouse/gitbookinstall.md","articles":[]},{"title":"Gitbook命令行速览","level":"1.3.3","depth":2,"path":"all_chapters/howtouse/gitbookcli.md","ref":"all_chapters/howtouse/gitbookcli.md","articles":[]}]},"previous":{"title":"远程仓库","level":"1.2.3","depth":2,"path":"all_chapters/git/remote_repository.md","ref":"all_chapters/git/remote_repository.md","articles":[]},"dir":"ltr"},"config":{"plugins":["livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"links":{"sharing":{"google":"https://plus.google.com/+WyattWang","twitter":"https://twitter.com/wwq0327"}},"gitbook":"*"},"file":{"path":"all_chapters/git/customize_settings.md","mtime":"2019-02-09T14:56:05.432Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-02-09T15:36:53.634Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"远程仓库","level":"1.2.4","depth":2,"next":{"title":"自定义Git","level":"1.2.5","depth":2,"path":"all_chapters/git/自定义Git.md","ref":"all_chapters/git/自定义Git.md","articles":[]},"previous":{"title":"分支管理与stash","level":"1.2.3","depth":2,"path":"all_chapters/git/分支管理与stash.md","ref":"all_chapters/git/分支管理与stash.md","articles":[]},"dir":"ltr"},"config":{"plugins":["livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"links":{"sharing":{"google":"https://plus.google.com/+WyattWang","twitter":"https://twitter.com/wwq0327"}},"gitbook":"*"},"file":{"path":"all_chapters/git/远程仓库.md","mtime":"2019-02-13T15:27:28.018Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-02-13T15:35:38.040Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

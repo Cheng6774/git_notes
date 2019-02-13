@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>远程仓库 · GitBook</title>
+        <title>diff · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="customize_settings.html" />
+    <link rel="next" href="分支管理与stash.html" />
     
     
-    <link rel="prev" href="branch.html" />
+    <link rel="prev" href="基本命令.html" />
     
 
     </head>
@@ -116,12 +116,12 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.2.1" data-path="basic_orders.html">
+        <li class="chapter " data-level="1.2.1" data-path="基本命令.html">
             
-                <a href="basic_orders.html">
+                <a href="基本命令.html">
             
                     
-                    基本操作
+                    基本命令
             
                 </a>
             
@@ -129,12 +129,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.2" data-path="branch.html">
+        <li class="chapter active" data-level="1.2.2" data-path="diff.html">
             
-                <a href="branch.html">
+                <a href="diff.html">
             
                     
-                    分支管理
+                    diff
             
                 </a>
             
@@ -142,9 +142,22 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.2.3" data-path="remote_repository.html">
+        <li class="chapter " data-level="1.2.3" data-path="分支管理与stash.html">
             
-                <a href="remote_repository.html">
+                <a href="分支管理与stash.html">
+            
+                    
+                    分支管理与stash
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="远程仓库.html">
+            
+                <a href="远程仓库.html">
             
                     
                     远程仓库
@@ -155,12 +168,25 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.4" data-path="customize_settings.html">
+        <li class="chapter " data-level="1.2.5" data-path="自定义Git.html">
             
-                <a href="customize_settings.html">
+                <a href="自定义Git.html">
             
                     
-                    自定义设置
+                    自定义Git
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="gitignore.html">
+            
+                <a href="gitignore.html">
+            
+                    
+                    gitignore
             
                 </a>
             
@@ -409,7 +435,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../.." >远程仓库</a>
+        <a href="../.." >diff</a>
     </h1>
 </div>
 
@@ -424,22 +450,23 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="&#x8FDC;&#x7A0B;&#x4ED3;&#x5E93;">&#x8FDC;&#x7A0B;&#x4ED3;&#x5E93;</h1>
-<pre><code>$ ssh-keygen -t rsa -C &quot;youremail@example.com&quot;
-# &#x6D4B;&#x8BD5;&#x662F;&#x5426;&#x6210;&#x529F;
-$ ssh -T git@github.com
+                                <h1 id="diff">diff</h1>
+<p>&#x539F;&#x59CB;&#x6587;&#x4EF6;&#x7528; - &#x8868;&#x793A;&#xFF0C;&#x76EE;&#x6807;&#x6587;&#x4EF6;&#x7528; + &#x8868;&#x793A;  </p>
+<pre><code># &#x7B80;&#x5355;&#x67E5;&#x770B;&#x6BD4;&#x8F83;&#xFF0C;&#x524D;&#x8005;&#x539F;&#x59CB;&#x6587;&#x4EF6;&#xFF0C;&#x540E;&#x8005;&#x4E3A;&#x76EE;&#x6807;&#x6587;&#x4EF6;
+$ diff &lt;file1-name&gt; &lt;file2-name&gt;
 
-# &#x628A;&#x4E00;&#x4E2A;&#x5DF2;&#x6709;&#x7684;&#x672C;&#x5730;&#x4ED3;&#x5E93;&#x4E0E;&#x4E4B;&#x5173;&#x8054;
-$ git remote add origin git@github.com:Windrivder/Windrivder.git
+# &#x9010;&#x884C;&#x67E5;&#x770B;&#x6BD4;&#x8F83;
+$ diff -u &lt;file1-name&gt; &lt;file2-name&gt;
 
-# &#x628A;&#x672C;&#x5730;&#x5E93;&#x7684;&#x6240;&#x6709;&#x5185;&#x5BB9;&#x63A8;&#x9001;&#x5230;&#x8FDC;&#x7A0B;&#x5E93;&#x4E0A;&#xFF08;&#x63A8;&#x9001;master&#x5206;&#x652F;&#x7684;&#x5185;&#x5BB9;&#xFF09;
-$ git push -u origin master
+# &#x6BD4;&#x8F83;&#x6682;&#x5B58;&#x533A;&#x548C;&#x5DE5;&#x4F5C;&#x533A;&#x7684;&#x5DEE;&#x522B;&#xFF0C;&#x6682;&#x5B58;&#x533A;&#x4E3A;&#x539F;&#x59CB;&#x6587;&#x4EF6;&#xFF0C;&#x5DE5;&#x4F5C;&#x533A;&#x4E3A;&#x76EE;&#x6807;&#x6587;&#x4EF6;
+$ git diff
 
-# &#x5411;&#x8FDC;&#x7A0B;&#x5E93;&#x63A8;&#x9001;&#x66F4;&#x65B0;
-$ git push origin master
+# &#x6BD4;&#x8F83;&#x6700;&#x65B0;&#x63D0;&#x4EA4;&#x7248;&#x672C;&#x548C;&#x5DE5;&#x4F5C;&#x533A;&#x7684;&#x5DEE;&#x522B;&#xFF0C;&#x63D0;&#x4EA4;&#x7248;&#x672C;&#x4E3A;&#x539F;&#x59CB;&#x6587;&#x4EF6;&#xFF0C;&#x5DE5;&#x4F5C;&#x533A;&#x4E3A;&#x76EE;&#x6807;&#x6587;&#x4EF6;
+$ git diff HEAD
+$ git diff 54djf  # &#x6362;&#x6210; commit id &#x8868;&#x793A;&#x67D0;&#x6B21;&#x63D0;&#x4EA4;&#x4E0E;&#x5DE5;&#x4F5C;&#x533A;&#x7684;&#x5DEE;&#x522B;
 
-# &#x4ECE;&#x8FDC;&#x7A0B;&#x5E93;&#x514B;&#x9686;
-$ git clone git@github.com:michaelliao/gitskills.git
+# &#x6BD4;&#x8F83;&#x6700;&#x65B0;&#x63D0;&#x4EA4;&#x7248;&#x672C;&#x4E0E;&#x6682;&#x5B58;&#x533A;&#x7684;&#x5DEE;&#x522B;&#xFF0C;&#x63D0;&#x4EA4;&#x7248;&#x672C;&#x4E3A;&#x539F;&#x59CB;&#x6587;&#x4EF6;&#xFF0C;&#x6682;&#x5B58;&#x533A;&#x4E3A;&#x76EE;&#x6807;&#x6587;&#x4EF6;
+$ git diff --cached
 </code></pre>
                                 
                                 </section>
@@ -467,12 +494,12 @@ $ git clone git@github.com:michaelliao/gitskills.git
 
             
                 
-                <a href="branch.html" class="navigation navigation-prev " aria-label="Previous page: 分支管理">
+                <a href="基本命令.html" class="navigation navigation-prev " aria-label="Previous page: 基本命令">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="customize_settings.html" class="navigation navigation-next " aria-label="Next page: 自定义设置">
+                <a href="分支管理与stash.html" class="navigation navigation-next " aria-label="Next page: 分支管理与stash">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -483,7 +510,7 @@ $ git clone git@github.com:michaelliao/gitskills.git
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"远程仓库","level":"1.2.3","depth":2,"next":{"title":"自定义设置","level":"1.2.4","depth":2,"path":"all_chapters/git/customize_settings.md","ref":"all_chapters/git/customize_settings.md","articles":[]},"previous":{"title":"分支管理","level":"1.2.2","depth":2,"path":"all_chapters/git/branch.md","ref":"all_chapters/git/branch.md","articles":[]},"dir":"ltr"},"config":{"plugins":["livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"links":{"sharing":{"google":"https://plus.google.com/+WyattWang","twitter":"https://twitter.com/wwq0327"}},"gitbook":"*"},"file":{"path":"all_chapters/git/remote_repository.md","mtime":"2019-02-09T14:35:29.540Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-02-09T15:36:53.634Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"diff","level":"1.2.2","depth":2,"next":{"title":"分支管理与stash","level":"1.2.3","depth":2,"path":"all_chapters/git/分支管理与stash.md","ref":"all_chapters/git/分支管理与stash.md","articles":[]},"previous":{"title":"基本命令","level":"1.2.1","depth":2,"path":"all_chapters/git/基本命令.md","ref":"all_chapters/git/基本命令.md","articles":[]},"dir":"ltr"},"config":{"plugins":["livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"links":{"sharing":{"google":"https://plus.google.com/+WyattWang","twitter":"https://twitter.com/wwq0327"}},"gitbook":"*"},"file":{"path":"all_chapters/git/diff.md","mtime":"2019-02-13T15:24:44.658Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-02-13T15:35:38.040Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
