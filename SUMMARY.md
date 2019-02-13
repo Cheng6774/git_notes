@@ -6,6 +6,7 @@
     * [diff](all_chapters/git/diff.md)
     * [分支管理与stash](all_chapters/git/分支管理与stash.md)
     * [远程仓库](all_chapters/git/远程仓库.md)
+    * [标签管理](all_chapters/git/标签管理.md)
     * [自定义Git](all_chapters/git/自定义Git.md)
     * [gitignore](all_chapters/git/gitignore.md)
 * [gitbook基础](all_chapters/howtouse/README.md)

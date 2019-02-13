@@ -1,8 +1,8 @@
 # git_notes
 
 学习git相关材料和笔记
-[github教程](./github-roam.pdf)
-[廖雪峰Git教程](./Git教程.pdf)
+[github教程](./github-roam.pdf)  
+[廖雪峰Git教程](./Git教程.pdf)  
 
 Gitbook 使用入门
 ==========
@@ -23,5 +23,10 @@ GitBook支持输出多种文档格式，如：
 
 ## Gitbook项目地址
 
-- GitBook项目官网：<http://www.gitbook.io>
-- GitBook Github地址：<https://github.com/GitbookIO/gitbook>
+- [GitBook项目官网](http://www.gitbook.io)
+- [GitBook_Github地址](https://github.com/GitbookIO/gitbook)
+
+## 本仓库及电子书
+
+- [仓库](https://github.com/Cheng6774/git_notes)
+- [电子书](https://cheng6774.github.io/git_notes/)
